@@ -234,6 +234,7 @@ class BuildParams:
             if not proj.wrap_path.exists():
                 # overridden; source cannot be stale
                 continue
+            if not proj.wrap.get('wrap-file', 'directory', fallback=None): continue
             hash = sha256(proj.wrap_path.read_bytes())
             diff_names: str = proj.wrap['wrap-file'].get('diff_files', '')
             diffs = [d.strip() for d in diff_names.split(',') if d.strip()]

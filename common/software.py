@@ -165,7 +165,8 @@ class Project(Software):
 
     @cached_property
     def wrap_dir_name(self) -> str:
-        return self.wrap.get('wrap-file', 'directory')
+        dir = self.wrap.get('wrap-file', 'directory', fallback=None)
+        return dir if dir else self.wrap.get('wrap-git', 'directory')
 
     @cached_property
     def version(self) -> str:
@@ -311,6 +312,13 @@ _PROJECTS = (
         display='cairo',
         licenses=['COPYING', 'COPYING-LGPL-2.1', 'COPYING-MPL-1.1'],
         remove_dirs=['doc', 'perf', 'test'],
+    ),
+    Project(
+        id='FFmpeg',
+        display='FFmpeg',
+        licenses=['COPYING.GPLv2','COPYING.GPLv3', 'COPYING.LGPLv2.1', 'COPYING.LGPLv3'],
+        remove_dirs=['doc', 'tests'],
+        anitya_id=5405,
     ),
     Project(
         id='gdk-pixbuf',

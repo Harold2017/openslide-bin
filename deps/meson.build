@@ -78,6 +78,27 @@ if dev_deps
   )
 endif
 
+subproject(
+  'FFmpeg',
+  default_options : [
+    'default_library=static',
+    'ffmpeg=disabled',
+    'ffplay=disabled',
+    'ffprobe=disabled',
+    'avcodec=enabled',
+    'avdevice=disabled',
+    'avfilter=disabled',
+    'avformat=disabled',
+    'avutil=enabled',
+    'swresample=disabled',
+    'swscale=disabled',
+    'postproc=disabled',
+    'programs=disabled',
+    'network=disabled',
+    'devices=disabled',
+    'tests=disabled',
+    ],
+)
 subproject('libpng')
 subproject(
   'libjpeg-turbo',

@@ -1,0 +1,8 @@
+[wrap-git]
+directory=ffmpeg-7.1
+url=https://gitlab.freedesktop.org/gstreamer/meson-ports/ffmpeg.git
+push-url=git@gitlab.freedesktop.org:gstreamer/meson-ports/ffmpeg.git
+revision=meson-7.1
+
+[provide]
+dependency_names = FFmpeg
